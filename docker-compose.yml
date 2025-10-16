@@ -16,7 +16,7 @@ services:
       # Optional screen resolution in WIDTHxHEIGHT format
       SCREEN_RESOLUTION: ${SCREEN_RESOLUTION}
       # Optional screen density (dpi)
-      #SCREEN_DENSITY: 227
+      SCREEN_DENSITY: ${SCREEN_DENSITY} #227
       ROOT_SETUP: ${ROOT_SETUP} # set to 1 to enable rooting
       GAPPS_SETUP: ${GAPPS_SETUP} # set to 1 to install PICO GAPPS
     privileged: ${privileged_android}
