@@ -7,9 +7,9 @@ services:
       context: .
     ports:
       - "5555:5555"
-    volumes:
-      - ${data_path}:/data
-      - ${extras_path}:/extras
+    #volumes:
+     # - ${data_path}:/data
+     # - ${extras_path}:/extras
     environment:
       DNS: one.one.one.one
       RAM_SIZE: ${RAM_SIZE}
