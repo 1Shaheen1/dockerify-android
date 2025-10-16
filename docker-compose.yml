@@ -8,18 +8,18 @@ services:
     ports:
       - "5555:5555"
     volumes:
-      - ./data:/data
-      - ./extras:/extras
+      - ${data_path}:/data
+      - ${extras_path}:/extras
     environment:
       DNS: one.one.one.one
-      # RAM_SIZE: 4096
+      RAM_SIZE: ${RAM_SIZE}
       # Optional screen resolution in WIDTHxHEIGHT format
-      #SCREEN_RESOLUTION: 720x720
+      SCREEN_RESOLUTION: ${SCREEN_RESOLUTION}
       # Optional screen density (dpi)
       #SCREEN_DENSITY: 227
-      ROOT_SETUP: 0 # set to 1 to enable rooting
-      GAPPS_SETUP: 0 # set to 1 to install PICO GAPPS
-    privileged: true
+      ROOT_SETUP: ${ROOT_SETUP} # set to 1 to enable rooting
+      GAPPS_SETUP: ${GAPPS_SETUP} # set to 1 to install PICO GAPPS
+    privileged: ${privileged_android}
     devices:
       - /dev/kvm
 
@@ -27,7 +27,7 @@ services:
     container_name: scrcpy-web
     restart: unless-stopped
     image: shmayro/scrcpy-web:latest
-    privileged: true
+    privileged: ${privileged_scrcpy}
     ports:
       - 8000:8000
     depends_on:
